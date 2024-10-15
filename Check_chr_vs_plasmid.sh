@@ -63,6 +63,6 @@ done
 paste ${BLAST_REPORT} ${RAND}_ordered_report.csv | tr '\t' ',' > ${BLAST_REPORT_OUTFILE}	
 
 # remove all tmp files
-rm *RAND*
-rm -r *RAND*
+rm *${RAND}*
+rm -r *${RAND}*
 
