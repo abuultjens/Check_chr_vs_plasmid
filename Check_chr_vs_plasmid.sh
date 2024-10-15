@@ -36,8 +36,8 @@ for TAXA in $(cat ${RAND}_ID_fofn.txt); do
             samtools faidx /home/buultjensa/alkrause/fastq_download/FOUND/${TAXA}/spades_${TAXA}/contigs.fa
             samtools faidx /home/buultjensa/alkrause/fastq_download/FOUND/${TAXA}/spades_${TAXA}/contigs.fa ${CONTIG} > ${RAND}_${TAXA}_${CONTIG}.fa
 
-            snippy --cpus 5 --outdir ${RAND}_${TAXA}_${CONTIG}_chromosome_reference.fasta --ref chromosome_reference.fasta --ctgs ${RAND}_${TAXA}_${CONTIG}.fa --force > ${RAND}_${TAXA}_${CONTIG}_CHR_log.txt 2>&1
-            snippy --cpus 5 --outdir ${RAND}_${TAXA}_${CONTIG}_plasmid_reference.fasta --ref plasmid_reference.fasta --ctgs ${RAND}_${TAXA}_${CONTIG}.fa --force > ${RAND}_${TAXA}_${CONTIG}_P_log.txt 2>&1
+            snippy --cpus 5 --outdir ${RAND}_${TAXA}_${CONTIG}_chromosome_reference.fasta --ref /home/buultjensa/alkrause/gene-puller/blast/plasmid_vs_chr/chromosome_reference.fasta --ctgs ${RAND}_${TAXA}_${CONTIG}.fa --force > ${RAND}_${TAXA}_${CONTIG}_CHR_log.txt 2>&1
+            snippy --cpus 5 --outdir ${RAND}_${TAXA}_${CONTIG}_plasmid_reference.fasta --ref /home/buultjensa/alkrause/gene-puller/blast/plasmid_vs_chr/plasmid_reference.fasta --ctgs ${RAND}_${TAXA}_${CONTIG}.fa --force > ${RAND}_${TAXA}_${CONTIG}_P_log.txt 2>&1
 
             CHR_READS=$(samtools view -c -F 4 ${RAND}_${TAXA}_${CONTIG}_chromosome_reference.fasta/snps.bam)
             P_READS=$(samtools view -c -F 4 ${RAND}_${TAXA}_${CONTIG}_plasmid_reference.fasta/snps.bam)
