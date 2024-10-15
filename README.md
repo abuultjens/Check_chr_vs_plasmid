@@ -6,6 +6,11 @@ How to get the code:
 git clone https://github.com/abuultjens/Check_chr_vs_plasmid.git
 ```
 
+Activate a conda env with samtools
+```
+conda activate [env_name]
+```
+
 How to run it:
 ```
 sh Check_chr_vs_plasmid.sh [blast_report.csv] [outfile_name.csv]
